@@ -74,13 +74,35 @@
       margin-bottom: 30px;
     }
 
-    /* ... adicione mais estilos aqui ... */
+    /* Estilos para formulários */
+    form {
+      max-width: 400px;
+      margin: 30px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="container header-content">
-      <img src="https://github.com/Cargueiro-QRM/cargueiro-qrm-design/blob/6bcff693039c5f1e4404edfa02d8b75dffda81f7/slogan%201.png" alt="Logo" class="logo">
+      <img src="https://raw.githubusercontent.com/Cargueiro-QRM/cargueiro-qrm-design/main/slogan%201.png" alt="Logo" class="logo">
       <nav>
         <ul>
           <li><a href="#">Empresas Parceiras</a></li>
@@ -94,5 +116,79 @@
       </div>
     </div>
   </header>
+
+  <main class="container">
+    <section id="login">
+      <h2>Login</h2>
+      <form action="/login" method="post">
+        <label for="login-email">Email:</label>
+        <input type="text" id="login-email" name="email" required>
+
+        <label for="login-senha">Senha:</label>
+        <input type="password" id="login-senha" name="senha" required>
+
+        <button type="submit" class="button button--primary">Entrar</button>
+      </form>
+    </section>
+
+    <section id="cadastro">
+      <h2>Cadastro</h2>
+      <form action="/cadastro" method="post">
+        <label for="cadastro-nome">Nome:</label>
+        <input type="text" id="cadastro-nome" name="nome" required>
+
+        <label for="cadastro-email">Email:</label>
+        <input type="text" id="cadastro-email" name="email" required>
+
+        <label for="cadastro-senha">Senha:</label>
+        <input type="password" id="cadastro-senha" name="senha" required>
+
+        <button type="submit" class="button button--primary">Cadastrar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+  </footer>
+
+  <script>
+    // Script para mostrar/esconder as seções de login e cadastro
+    const loginSection = document.getElementById('login');
+    const cadastroSection = document.getElementById('cadastro');
+    const loginButton = document.querySelector('.button--secondary');
+    const cadastroButton = document.querySelector('.button--primary');
+
+    loginButton.addEventListener('click', () => {
+      loginSection.style.display = 'block';
+      cadastroSection.style.display = 'none';
+    });
+
+    cadastroButton.addEventListener('click', () => {
+      loginSection.style.display = 'none';
+      cadastroSection.style.display = 'block';
+    });
+
+    // Desabilitar o clique com o botão direito
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+    // Desabilitar atalhos de teclado
+    document.onkeydown = function(e) {
+      if(event.keyCode == 123) {
+        return false;
+      }
+      if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+        return false;
+      }
+      if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+        return false;
+      }
+      if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+        return false;
+      }
+      if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+        return false;
+      }
+    }
+  </script>
 </body>
 </html>
