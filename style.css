@@ -174,6 +174,8 @@ input[type="password"] {
   border-radius: 10px;
 }
 
+/* ... outros estilos ... */
+
 /* Estilos para os benefícios */
 .beneficios {
   margin-top: 80px;
@@ -182,22 +184,44 @@ input[type="password"] {
 .container-beneficios {
   display: flex;
   justify-content: space-around;
+  margin-bottom: 20px; /* Espaçamento para os botões */
 }
 
-.beneficios-empresas, .beneficios-motoristas {
-  width: 45%;
+.conteudo-beneficios {
+  display: none; /* Oculta o conteúdo inicialmente */
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
 }
 
-.beneficios-empresas ul, .beneficios-motoristas ul {
+.conteudo-beneficios h3 {
+  margin-top: 0;
+}
+
+.conteudo-beneficios ul {
   list-style: none;
   padding: 0;
 }
 
-.beneficios-empresas li, .beneficios-motoristas li {
-  margin-bottom: 15px;
-  font-size: 1.1em;
+.conteudo-beneficios li {
+  margin-bottom: 10px;
+  font-size: 1em;
 }
 
-.beneficios-empresas i, .beneficios-motoristas i {
+.conteudo-beneficios i {
   margin-right: 10px;
+  color: #291111; /* Cor do ícone */
+}
+
+/* Estilo tecnológico para os botões */
+.button--primary {
+  background-color: #007bff; /* Cor de fundo azul */
+  color: #fff; /* Cor do texto branca */
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.button--primary:hover {
+  background-color: #0056b3; /* Cor de fundo azul mais escura ao passar o mouse */
 }
