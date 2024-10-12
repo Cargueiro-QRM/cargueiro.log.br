@@ -114,7 +114,7 @@ input[type="password"] {
 
 .close {
   color: #aaa;
-  float: right;
+  float:right;
   font-size: 28px;
   font-weight: bold;
 }
@@ -130,4 +130,74 @@ input[type="password"] {
 .aviso {
   text-align: center;
   margin-top: 50px; 
+}
+
+/* Estilos para a apresentação */
+.apresentacao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.conteudo-apresentacao {
+  flex: 1;
+  margin-right: 30px;
+}
+
+.titulo-apresentacao {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.descricao-apresentacao {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.botoes-apresentacao {
+  display: flex;
+}
+
+.botoes-apresentacao .button {
+  margin-right: 15px;
+}
+
+.imagem-apresentacao {
+  flex: 1;
+  max-width: 500px;
+}
+
+.imagem-apresentacao img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Estilos para os benefícios */
+.beneficios {
+  margin-top: 80px;
+}
+
+.container-beneficios {
+  display: flex;
+  justify-content: space-around;
+}
+
+.beneficios-empresas, .beneficios-motoristas {
+  width: 45%;
+}
+
+.beneficios-empresas ul, .beneficios-motoristas ul {
+  list-style: none;
+  padding: 0;
+}
+
+.beneficios-empresas li, .beneficios-motoristas li {
+  margin-bottom: 15px;
+  font-size: 1.1em;
+}
+
+.beneficios-empresas i, .beneficios-motoristas i {
+  margin-right: 10px;
 }
