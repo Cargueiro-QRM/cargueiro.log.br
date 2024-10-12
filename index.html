@@ -1,12 +1,114 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página Projeto</title>
+  <title>Meu Projeto</title>
+  <style>
+    /* Estilos gerais */
+    body {
+      font-family: 'Satoshi', sans-serif;
+    }
+
+    .container {
+      max-width: 1182px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Estilos do cabeçalho */
+    header {
+      background-color: #f0f0f0;
+      padding: 20px 0;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      max-width: 200px;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav li {
+      margin-left: 30px;
+    }
+
+    /* Estilos do botão */
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      font-weight: 700;
+      color: #ffffff;
+      text-decoration: none;
+      white-space: nowrap;
+      cursor: pointer;
+      border-radius: 12px;
+      transition: background-color 0.3s ease, border 0.2s ease;
+    }
+
+    .button--primary {
+      background-color: #e04747;
+      border: none;
+    }
+
+    .button--secondary {
+      background-color: transparent;
+      border: 1px solid #111111;
+      color: #111111;
+    }
+
+    /* Outros estilos */
+    .section-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    /* ... adicione mais estilos aqui ... */
+  </style>
 </head>
 <body>
-  <h1>Página Projeto</h1>
-  <p>TESTE 1.</p>
+  <header>
+    <div class="container header-content">
+      <img src="/images/logo.svg" alt="Logo" class="logo">
+      <nav>
+        <ul>
+          <li><a href="#">Fretes</a></li>
+          <li><a href="#">Para Empresas</a></li>
+          <li><a href="#">Para Caminhoneiros</a></li>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </nav>
+      <div>
+        <a href="#" class="button button--secondary">Entrar</a>
+        <a href="#" class="button button--primary">Fazer cadastro</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2 class="section-title">Seção 1</h2>
+      </section>
+
+    <section>
+      <h2 class="section-title">Seção 2</h2>
+      </section>
+
+    </main>
+
+  <footer>
+    </footer>
 </body>
 </html>
