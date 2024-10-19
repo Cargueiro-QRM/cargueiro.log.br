@@ -1,53 +1,49 @@
 // Elementos do DOM
 const modalLogin = document.getElementById("modalLogin");
+const modalCadastro = document.getElementById("modalCadastro");
 const btnAbrirModalLogin = document.getElementById("abrirModalLogin");
 const btnAbrirModalCadastroApresentacao = document.getElementById("abrirModalCadastroApresentacao");
-const modalCadastro = document.getElementById("modalCadastro");
-const closeButtons = document.getElementsByClassName("close");
+const closeButtons = document.querySelectorAll(".close");
 
 const btnBeneficiosEmpresas = document.getElementById("btnBeneficiosEmpresas");
 const conteudoBeneficiosEmpresas = document.getElementById("conteudoBeneficiosEmpresas");
 const btnBeneficiosMotoristas = document.getElementById("btnBeneficiosMotoristas");
 const conteudoBeneficiosMotoristas = document.getElementById("conteudoBeneficiosMotoristas");
 
-// Funções para abrir modais
-const abrirModal = (modal) => {
-  modal.style.display = "block";
-}
-
-const fecharModal = (modal) => {
-  modal.style.display = "none";
+// Funções para abrir e fechar modais
+const toggleModalVisibility = (modal, isVisible) => {
+  modal.style.display = isVisible ? "block" : "none";
 }
 
 // Eventos para abrir modais
-btnAbrirModalLogin.addEventListener("click", () => abrirModal(modalLogin));
-btnAbrirModalCadastroApresentacao.addEventListener("click", () => abrirModal(modalCadastro));
+btnAbrirModalLogin.addEventListener("click", () => toggleModalVisibility(modalLogin, true));
+btnAbrirModalCadastroApresentacao.addEventListener("click", () => toggleModalVisibility(modalCadastro, true));
 
 // Fechar modais ao clicar no 'x'
-Array.from(closeButtons).forEach(button => {
+closeButtons.forEach(button => {
   button.addEventListener("click", () => {
-    fecharModal(modalLogin);
-    fecharModal(modalCadastro);
+    toggleModalVisibility(modalLogin, false);
+    toggleModalVisibility(modalCadastro, false);
   });
 });
 
 // Fechar modais ao clicar fora deles
 window.addEventListener("click", (event) => {
-  if (event.target === modalLogin) {
-    fecharModal(modalLogin);
-  }
-  if (event.target === modalCadastro) {
-    fecharModal(modalCadastro);
+  if (event.target === modalLogin || event.target === modalCadastro) {
+    toggleModalVisibility(event.target, false);
   }
 });
 
 // Alternar visibilidade dos conteúdos de benefícios
-btnBeneficiosEmpresas.addEventListener("click", () => {
-  conteudoBeneficiosEmpresas.style.display = conteudoBeneficiosEmpresas.style.display === "block" ? "none" : "block";
-  conteudoBeneficiosMotoristas.style.display = "none";
-});
+const toggleContentVisibility = (contentToShow, contentToHide) => {
+  contentToShow.style.display = contentToShow.style.display === "block" ? "none" : "block";
+  contentToHide.style.display = "none";
+};
 
-btnBeneficiosMotoristas.addEventListener("click", () => {
-  conteudoBeneficiosMotoristas.style.display = conteudoBeneficiosMotoristas.style.display === "block" ? "none" : "block";
-  conteudoBeneficiosEmpresas.style.display = "none";
-});
+btnBeneficiosEmpresas.addEventListener("click", () => 
+  toggleContentVisibility(conteudoBeneficiosEmpresas, conteudoBeneficiosMotoristas)
+);
+
+btnBeneficiosMotoristas.addEventListener("click", () => 
+  toggleContentVisibility(conteudoBeneficiosMotoristas, conteudoBeneficiosEmpresas)
+);
