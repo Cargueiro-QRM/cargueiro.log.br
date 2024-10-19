@@ -1,42 +1,47 @@
-// Script para abrir e fechar os modais
+// Elementos do DOM
 const modalLogin = document.getElementById("modalLogin");
 const btnAbrirModalLogin = document.getElementById("abrirModalLogin");
 const btnAbrirModalCadastroApresentacao = document.getElementById("abrirModalCadastroApresentacao");
 const modalCadastro = document.getElementById("modalCadastro");
-const spans = document.getElementsByClassName("close");
+const closeButtons = document.getElementsByClassName("close");
 
-// Função para abrir o modal de login
-btnAbrirModalLogin.onclick = function() {
-  modalLogin.style.display = "block";
-}
-
-// Função para abrir o modal de cadastro
-btnAbrirModalCadastroApresentacao.onclick = function() {
-  modalCadastro.style.display = "block";
-}
-
-// Fechar os modais quando o usuário clica no 'x'
-for (let i = 0; i < spans.length; i++) {
-  spans[i].onclick = function() {
-    modalLogin.style.display = "none";
-    modalCadastro.style.display = "none";
-  }
-}
-
-// Fechar os modais quando o usuário clica fora deles
-window.onclick = function(event) {
-  if (event.target == modalLogin || event.target == modalCadastro) {
-    modalLogin.style.display = "none";
-    modalCadastro.style.display = "none";
-  }
-}
-
-// Script para os botões de benefícios
 const btnBeneficiosEmpresas = document.getElementById("btnBeneficiosEmpresas");
 const conteudoBeneficiosEmpresas = document.getElementById("conteudoBeneficiosEmpresas");
 const btnBeneficiosMotoristas = document.getElementById("btnBeneficiosMotoristas");
 const conteudoBeneficiosMotoristas = document.getElementById("conteudoBeneficiosMotoristas");
 
+// Funções para abrir modais
+const abrirModal = (modal) => {
+  modal.style.display = "block";
+}
+
+const fecharModal = (modal) => {
+  modal.style.display = "none";
+}
+
+// Eventos para abrir modais
+btnAbrirModalLogin.addEventListener("click", () => abrirModal(modalLogin));
+btnAbrirModalCadastroApresentacao.addEventListener("click", () => abrirModal(modalCadastro));
+
+// Fechar modais ao clicar no 'x'
+Array.from(closeButtons).forEach(button => {
+  button.addEventListener("click", () => {
+    fecharModal(modalLogin);
+    fecharModal(modalCadastro);
+  });
+});
+
+// Fechar modais ao clicar fora deles
+window.addEventListener("click", (event) => {
+  if (event.target === modalLogin) {
+    fecharModal(modalLogin);
+  }
+  if (event.target === modalCadastro) {
+    fecharModal(modalCadastro);
+  }
+});
+
+// Alternar visibilidade dos conteúdos de benefícios
 btnBeneficiosEmpresas.addEventListener("click", () => {
   conteudoBeneficiosEmpresas.style.display = conteudoBeneficiosEmpresas.style.display === "block" ? "none" : "block";
   conteudoBeneficiosMotoristas.style.display = "none";

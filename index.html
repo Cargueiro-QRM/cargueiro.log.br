@@ -79,7 +79,7 @@
     <div class="modal-content">
       <span class="close">&times;</span>
       <h2>Login</h2>
-      <form action="/login" method="post">
+      <form id="login-form">
         <label for="login-email">Email:</label>
         <input type="text" id="login-email" name="email" required>
 
@@ -88,6 +88,7 @@
 
         <button type="submit" class="button button--primary">Entrar</button>
       </form>
+      <div id="login-feedback" class="feedback"></div>
     </div>
   </div>
 
@@ -95,7 +96,7 @@
     <div class="modal-content">
       <span class="close">&times;</span>
       <h2>Cadastro</h2>
-      <form action="/cadastro" method="post">
+      <form id="cadastro-form">
         <label for="cadastro-nome">Nome:</label>
         <input type="text" id="cadastro-nome" name="nome" required>
 
@@ -107,9 +108,68 @@
 
         <button type="submit" class="button button--primary">Cadastrar</button>
       </form>
+      <div id="cadastro-feedback" class="feedback"></div>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    // JavaScript para enviar formulários usando AJAX
+    document.getElementById('login-form').addEventListener('submit', async function(event) {
+      event.preventDefault();
+      const email = document.getElementById('login-email').value;
+      const senha = document.getElementById('login-senha').value;
+      
+      const response = await fetch('http://seu-servidor.com/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, senha }),
+      });
+      const data = await response.json();
+      document.getElementById('login-feedback').innerText = data.message;
+    });
+
+    document.getElementById('cadastro-form').addEventListener('submit', async function(event) {
+      event.preventDefault();
+      const nome = document.getElementById('cadastro-nome').value;
+      const email = document.getElementById('cadastro-email').value;
+      const senha = document.getElementById('cadastro-senha').value;
+      
+      const response = await fetch('http://seu-servidor.com/cadastro', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ nome, email, senha }),
+      });
+      const data = await response.json();
+      document.getElementById('cadastro-feedback').innerText = data.message;
+    });
+
+    // Script para abrir e fechar os modais
+    const modals = document.querySelectorAll('.modal');
+    const spans = document.getElementsByClassName('close');
+
+    document.getElementById('abrirModalLogin').onclick = function() {
+      document.getElementById('modalLogin').style.display = 'block';
+    }
+
+    document.getElementById('abrirModalCadastroApresentacao').onclick = function() {
+      document.getElementById('modalCadastro').style.display = 'block';
+    }
+
+    for (let i = 0; i < spans.length; i++) {
+      spans[i].onclick = function() {
+        modals[i].style.display = 'none';
+      }
+    }
+
+    window.onclick = function(event) {
+      if (event.target.classList.contains('modal')) {
+        event.target.style.display = 'none';
+      }
+    }
+  </script>
 </body>
 </html>
