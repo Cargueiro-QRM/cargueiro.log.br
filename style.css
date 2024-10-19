@@ -1,9 +1,22 @@
-body {
-  font-family: Arial, sans-serif;
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --background-color: #f4f4f9;
+  --header-footer-bg: #333;
+  --text-color-light: white;
+  --text-color-dark: #333;
+  --modal-bg: rgba(0, 0, 0, 0.4);
+}
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #f4f4f9;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
 }
 
 .header-content {
@@ -11,8 +24,8 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #333;
-  color: white;
+  background-color: var(--header-footer-bg);
+  color: var(--text-color-light);
 }
 
 .header-content .logo {
@@ -26,7 +39,7 @@ nav ul {
 }
 
 nav ul li a {
-  color: white;
+  color: var(--text-color-light);
   text-decoration: none;
   padding: 5px 10px;
   transition: background-color 0.3s;
@@ -45,24 +58,25 @@ nav ul li a:hover {
 .section-title {
   font-size: 24px;
   margin-bottom: 10px;
+  color: var(--text-color-dark);
 }
 
 .button {
   padding: 10px 20px;
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, opacity 0.3s;
   border-radius: 5px;
 }
 
 .button--primary {
-  background-color: #007bff;
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--text-color-light);
 }
 
 .button--secondary {
-  background-color: #6c757d;
-  color: white;
+  background-color: var(--secondary-color);
+  color: var(--text-color-light);
 }
 
 .button:hover {
@@ -70,8 +84,8 @@ nav ul li a:hover {
 }
 
 footer {
-  background-color: #333;
-  color: white;
+  background-color: var(--header-footer-bg);
+  color: var(--text-color-light);
   text-align: center;
   padding: 10px;
   position: fixed;
@@ -88,7 +102,7 @@ footer {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,0.4);
+  background-color: var(--modal-bg);
   padding-top: 60px;
 }
 
@@ -98,6 +112,7 @@ footer {
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+  border-radius: 8px;
 }
 
 .close {
