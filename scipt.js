@@ -38,19 +38,11 @@ const btnBeneficiosMotoristas = document.getElementById("btnBeneficiosMotoristas
 const conteudoBeneficiosMotoristas = document.getElementById("conteudoBeneficiosMotoristas");
 
 btnBeneficiosEmpresas.addEventListener("click", () => {
-  if (conteudoBeneficiosEmpresas.style.display === "none" || conteudoBeneficiosEmpresas.style.display === "") {
-    conteudoBeneficiosEmpresas.style.display = "block";
-    conteudoBeneficiosMotoristas.style.display = "none"; // Esconde os motoristas
-  } else {
-    conteudoBeneficiosEmpresas.style.display = "none";
-  }
+  conteudoBeneficiosEmpresas.style.display = conteudoBeneficiosEmpresas.style.display === "block" ? "none" : "block";
+  conteudoBeneficiosMotoristas.style.display = "none";
 });
 
 btnBeneficiosMotoristas.addEventListener("click", () => {
-  if (conteudoBeneficiosMotoristas.style.display === "none" || conteudoBeneficiosMotoristas.style.display === "") {
-    conteudoBeneficiosMotoristas.style.display = "block";
-    conteudoBeneficiosEmpresas.style.display = "none"; // Esconde as empresas
-  } else {
-    conteudoBeneficiosMotoristas.style.display = "none";
-  }
+  conteudoBeneficiosMotoristas.style.display = conteudoBeneficiosMotoristas.style.display === "block" ? "none" : "block";
+  conteudoBeneficiosEmpresas.style.display = "none";
 });
