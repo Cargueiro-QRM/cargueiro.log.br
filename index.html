@@ -113,38 +113,52 @@
   </div>
 
   <script>
-    // JavaScript para enviar formulários usando AJAX
+    // URL base do seu servidor Flask
+    const baseUrl = 'http://localhost:5000'; // Atualize para o seu domínio ou endereço IP
+
+    // Função para enviar o formulário de login
     document.getElementById('login-form').addEventListener('submit', async function(event) {
       event.preventDefault();
       const email = document.getElementById('login-email').value;
       const senha = document.getElementById('login-senha').value;
       
-      const response = await fetch('http://seu-servidor.com/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, senha }),
-      });
-      const data = await response.json();
-      document.getElementById('login-feedback').innerText = data.message;
+      try {
+        const response = await fetch(`${baseUrl}/login`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email, senha }),
+        });
+        const data = await response.json();
+        document.getElementById('login-feedback').innerText = data.message || data.token ? 'Login bem-sucedido!' : 'Erro no login';
+      } catch (error) {
+        console.error('Erro:', error);
+        document.getElementById('login-feedback').innerText = 'Erro ao realizar login';
+      }
     });
 
+    // Função para enviar o formulário de cadastro
     document.getElementById('cadastro-form').addEventListener('submit', async function(event) {
       event.preventDefault();
       const nome = document.getElementById('cadastro-nome').value;
       const email = document.getElementById('cadastro-email').value;
       const senha = document.getElementById('cadastro-senha').value;
       
-      const response = await fetch('http://seu-servidor.com/cadastro', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ nome, email, senha }),
-      });
-      const data = await response.json();
-      document.getElementById('cadastro-feedback').innerText = data.message;
+      try {
+        const response = await fetch(`${baseUrl}/register`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ nome, email, senha }),
+        });
+        const data = await response.json();
+        document.getElementById('cadastro-feedback').innerText = data.message;
+      } catch (error) {
+        console.error('Erro:', error);
+        document.getElementById('cadastro-feedback').innerText = 'Erro ao realizar cadastro';
+      }
     });
 
     // Script para abrir e fechar os modais
