@@ -113,7 +113,8 @@
   </div>
 
   <script>
-    const baseUrl = 'cargueiro.log.br';
+    // URL base do seu servidor Flask
+    const baseUrl = 'http://localhost:5000'; // Atualize para o seu domínio ou endereço IP
 
     // Função para enviar o formulário de login
     document.getElementById('login-form').addEventListener('submit', async function(event) {
@@ -130,7 +131,7 @@
           body: JSON.stringify({ email, senha }),
         });
         const data = await response.json();
-        document.getElementById('login-feedback').innerText = data.message || (data.token ? 'Login bem-sucedido!' : 'Erro no login');
+        document.getElementById('login-feedback').innerText = data.message || data.token ? 'Login bem-sucedido!' : 'Erro no login';
       } catch (error) {
         console.error('Erro:', error);
         document.getElementById('login-feedback').innerText = 'Erro ao realizar login';
