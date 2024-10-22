@@ -112,18 +112,22 @@
     </div>
   </div>
 
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
   <script>
-    // URL base do seu servidor Flask
-    const baseUrl = 'http://localhost:5000'; // Atualize para o seu domínio ou endereço IP
+    const baseUrl = 'http://localhost:5000'; // Atualize para o URL do seu servidor backend
+
+    // Inicialize o SocketIO
+    const socket = io(baseUrl);
 
     // Função para enviar o formulário de login
     document.getElementById('login-form').addEventListener('submit', async function(event) {
       event.preventDefault();
       const email = document.getElementById('login-email').value;
       const senha = document.getElementById('login-senha').value;
-      
+
       try {
-        const response = await fetch(`${baseUrl}/login`, {
+        const response = await fetch(`${baseUrl}/auth/login`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -131,7 +135,7 @@
           body: JSON.stringify({ email, senha }),
         });
         const data = await response.json();
-        document.getElementById('login-feedback').innerText = data.message || data.token ? 'Login bem-sucedido!' : 'Erro no login';
+        document.getElementById('login-feedback').innerText = data.message || (data.token ? 'Login bem-sucedido!' : 'Erro no login');
       } catch (error) {
         console.error('Erro:', error);
         document.getElementById('login-feedback').innerText = 'Erro ao realizar login';
@@ -144,9 +148,9 @@
       const nome = document.getElementById('cadastro-nome').value;
       const email = document.getElementById('cadastro-email').value;
       const senha = document.getElementById('cadastro-senha').value;
-      
+
       try {
-        const response = await fetch(`${baseUrl}/register`, {
+        const response = await fetch(`${baseUrl}/auth/register`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
