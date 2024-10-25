@@ -136,6 +136,7 @@
         });
         const data = await response.json();
         document.getElementById('login-feedback').innerText = data.message || (data.token ? 'Login bem-sucedido!' : 'Erro no login');
+        alert(data.message || 'Cadastro realizado');
       } catch (error) {
         console.error('Erro:', error);
         document.getElementById('login-feedback').innerText = 'Erro ao realizar login';
