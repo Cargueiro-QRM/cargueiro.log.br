@@ -1,194 +1,43 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Cargueiro.QRM: O aplicativo que automatiza e integra toda a sua logística, conectando empresas e motoristas em uma plataforma inteligente e segura.">
-  <title>Cargueiro QRM</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apresentação - Produto</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div class="header-content">
-      <img src="log.png" alt="Logo Cargueiro.QRM" class="logo">
-      <nav>
-        <ul>
-          <li><a href="index.html">Início</a></li>
-          <li><a href="empresas.html">Empresas</a></li>
-          <li><a href="motoristas.html">Motoristas</a></li>
-          <li><a href="suporte.html">Suporte</a></li>
-        </ul>
-      </nav>
-      <div>
-        <button id="abrirModalLogin" class="button button--secondary">Entrar</button>
-      </div>
-    </div>
-  </header>
+    <header>
+        <img src="logo.png" alt="Logo Produto">
+    </header>
+    <main class="container">
+        <h1>Descubra o futuro da logística</h1>
+        <p>Com o Produto, você conecta empresas e motoristas de forma simples e eficiente.</p>
+        <button id="btnCadastro" class="btn-primary">Cadastre-se agora</button>
+    </main>
+    <footer>
+        &copy; 2024 Produto. Todos os direitos reservados.
+    </footer>
 
-  <main class="container">
-    <section class="apresentacao">
-      <div class="conteudo-apresentacao">
-        <h1 class="titulo-apresentacao">Cargueiro QRM: A solução completa para o transporte rodoviário de cargas</h1>
-        <p class="descricao-apresentacao">Uma plataforma digital que conecta empresas e motoristas de forma inteligente, simplificando o transporte de cargas e otimizando seus resultados.</p>
-        <div class="botoes-apresentacao">
-          <button id="abrirModalSaibaApresentacao" class="button button--primary">Saiba mais</button>
-          <button id="abrirModalCadastroApresentacao" class="button button--secondary">Cadastre-se agora</button>
+    <div id="modalCadastro" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Cadastre-se</h2>
+            <form id="cadastro-form">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" required>
+
+                <button type="submit" class="btn-primary">Cadastrar</button>
+            </form>
         </div>
-      </div>
-      <div class="imagem-apresentacao">
-        <img src="imagens/caminhao-moderno.jpg" alt="Caminhão moderno na estrada">
-      </div>
-    </section>
-
-    <section class="beneficios">
-      <h2 class="section-title">Benefícios para empresas e motoristas</h2>
-      <div class="container-beneficios">
-        <button id="btnBeneficiosEmpresas" class="button button--primary">Benefícios para Empresas</button>
-        <button id="btnBeneficiosMotoristas" class="button button--primary">Benefícios para Motoristas</button>
-      </div>
-      <div id="conteudoBeneficiosEmpresas" class="conteudo-beneficios">
-        <h3>Empresas</h3>
-        <ul>
-          <li><i class="fas fa-dollar-sign"></i> Redução de custos operacionais</li>
-          <li><i class="fas fa-user-check"></i> Contratação mais ágil de motoristas</li>
-          <li><i class="fas fa-truck-moving"></i> Otimização logística</li>
-          <li><i class="fas fa-chart-line"></i> Aumento da eficiência no transporte</li>
-          <li><i class="fas fa-map-marker-alt"></i> Rastreamento em tempo real das cargas</li>
-        </ul>
-      </div>
-      <div id="conteudoBeneficiosMotoristas" class="conteudo-beneficios" style="display:none;">
-        <h3>Motoristas</h3>
-        <ul>
-          <li><i class="fas fa-search-dollar"></i> Mais oportunidades de fretes</li>
-          <li><i class="fas fa-shield-alt"></i> Maior segurança nas estradas</li>
-          <li><i class="fas fa-book"></i> Diário de bordo digital</li>
-          <li><i class="fas fa-signature"></i> Assinatura digital para contratos</li>
-          <li><i class="fas fa-route"></i> Gerenciamento de viagens</li>
-        </ul>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2024 Cargueiro QRM. Todos os direitos reservados.</p>
-  </footer>
-
-  <!-- Modais -->
-  <div id="modalLogin" class="modal" style="display:none;">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>Login</h2>
-      <form id="login-form">
-        <label for="login-email">Email:</label>
-        <input type="text" id="login-email" name="email" required>
-
-        <label for="login-senha">Senha:</label>
-        <input type="password" id="login-senha" name="senha" required>
-
-        <button type="submit" class="button button--primary">Entrar</button>
-      </form>
-      <div id="login-feedback" class="feedback"></div>
     </div>
-  </div>
 
-  <div id="modalCadastro" class="modal" style="display:none;">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>Cadastro</h2>
-      <form id="cadastro-form">
-        <label for="cadastro-nome">Nome:</label>
-        <input type="text" id="cadastro-nome" name="nome" required>
-
-        <label for="cadastro-email">Email:</label>
-        <input type="text" id="cadastro-email" name="email" required>
-
-        <label for="cadastro-senha">Senha:</label>
-        <input type="password" id="cadastro-senha" name="senha" required>
-
-        <button type="submit" class="button button--primary">Cadastrar</button>
-      </form>
-      <div id="cadastro-feedback" class="feedback"></div>
-    </div>
-  </div>
-
-  <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
-  <script>
-    const baseUrl = 'https://github.com/Cargueiro-QRM/cqrm-backend';
-
-    // Inicialize o SocketIO
-    const socket = io(baseUrl);
-
-    // Função para enviar o formulário de login
-    document.getElementById('login-form').addEventListener('submit', async function(event) {
-      event.preventDefault();
-      const email = document.getElementById('login-email').value;
-      const senha = document.getElementById('login-senha').value;
-
-      try {
-        const response = await fetch(`${baseUrl}/auth/login`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ email, senha }),
-        });
-        const data = await response.json();
-        document.getElementById('login-feedback').innerText = data.message || (data.token ? 'Login bem-sucedido!' : 'Erro no login');
-        alert(data.message || 'Cadastro realizado');
-      } catch (error) {
-        console.error('Erro:', error);
-        document.getElementById('login-feedback').innerText = 'Erro ao realizar login';
-      }
-    });
-
-    // Função para enviar o formulário de cadastro
-    document.getElementById('cadastro-form').addEventListener('submit', async function(event) {
-      event.preventDefault();
-      const nome = document.getElementById('cadastro-nome').value;
-      const email = document.getElementById('cadastro-email').value;
-      const senha = document.getElementById('cadastro-senha').value;
-
-      try {
-        const response = await fetch(`${baseUrl}/auth/register`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ nome, email, senha }),
-        });
-        const data = await response.json();
-        document.getElementById('cadastro-feedback').innerText = data.message;
-      } catch (error) {
-        console.error('Erro:', error);
-        document.getElementById('cadastro-feedback').innerText = 'Erro ao realizar cadastro';
-      }
-    });
-
-    // Script para abrir e fechar os modais
-    const modals = document.querySelectorAll('.modal');
-    const spans = document.getElementsByClassName('close');
-
-    document.getElementById('abrirModalLogin').onclick = function() {
-      document.getElementById('modalLogin').style.display = 'block';
-    }
-
-    document.getElementById('abrirModalCadastroApresentacao').onclick = function() {
-      document.getElementById('modalCadastro').style.display = 'block';
-    }
-
-    for (let i = 0; i < spans.length; i++) {
-      spans[i].onclick = function() {
-        modals[i].style.display = 'none';
-      }
-    }
-
-    window.onclick = function(event) {
-      if (event.target.classList.contains('modal')) {
-        event.target.style.display = 'none';
-      }
-    }
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>
